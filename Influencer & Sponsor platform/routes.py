@@ -1,3 +1,9 @@
+# Copyright (c) 2024 Vikas-06978
+# Licensed under the MIT License
+# Unauthorized copying of this file, via any medium, is strictly prohibited
+# Written by Vikas
+
+
 from flask import render_template, request, redirect, url_for, flash, session, jsonify
 from app import app, login_manager
 from models import *
