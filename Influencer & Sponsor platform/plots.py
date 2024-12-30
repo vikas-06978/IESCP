@@ -1,3 +1,9 @@
+# Copyright (c) 2024 Vikas-06978
+# Licensed under the MIT License
+# Unauthorized copying of this file, via any medium, is strictly prohibited
+# Written by Vikas
+
+
 import matplotlib
 matplotlib.use('Agg')  # Use the Agg backend to avoid Tkinter issues
 import matplotlib.pyplot as plt
