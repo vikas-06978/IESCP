@@ -1,3 +1,9 @@
+# Copyright (c) 2024 Vikas-06978
+# Licensed under the MIT License
+# Unauthorized copying of this file, via any medium, is strictly prohibited
+# Written by Vikas
+
+
 from flask import Flask
 from flask_login import LoginManager
 
