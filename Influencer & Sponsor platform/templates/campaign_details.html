@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Campaign Details{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/details.css">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+            <h1 class="card-title">{{ campaign.campaign_name }}</h1>
+            <p class="card-text"><strong>Description:</strong> {{ campaign.description }}</p>
+            <p class="card-text"><strong>Start Date:</strong> {{ campaign.start_date }}</p>
+            <p class="card-text"><strong>End Date:</strong> {{ campaign.end_date }}</p>
+            <p class="card-text"><strong>Budget:</strong> {{ campaign.budget }}</p>
+            <p class="card-text"><strong>Visibility:</strong> {{ campaign.visibility }}</p>
+            <p class="card-text"><strong>Goals:</strong> {{ campaign.goals }}</p>
+        </div>
+    </div>
+    <button class="btn btn-danger" onclick="window.history.back()">Back</button>
+</div>
+{% endblock %}

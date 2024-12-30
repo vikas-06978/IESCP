@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search Campaigns
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/search_campaigns.css">
+{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <h1>Publicly Active Campaigns</h1>
+
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <a href="{{ url_for('influencer') }}" class="back-button">Back</a>
+        </div>
+        
+        <div id="campaigns-container">
+            {% for entry in entries %}
+            <form action="{{ url_for('send_notification_to_sponsor') }}" method="POST">
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="campaign-name">{{ entry.sponsor.sponsor_name }}</h2>
+                        <p class="campaign-description">{{ entry.campaign.description }}</p>
+                        <p class="campaign-requirements">{{ entry.campaign.requirements }}</p>
+                        <p class="campaign-start-date">Start Date: {{ entry.campaign.start_date.strftime('%Y-%m-%d') }}</p>
+                        <p class="campaign-end-date">End Date: {{ entry.campaign.end_date.strftime('%Y-%m-%d') }}</p>
+                        <p class="campaign-budget">Budget: ${{ entry.campaign.budget }}</p>
+                        <p class="campaign-goals">Goals: {{ entry.campaign.goals }}
+                        </p>
+                        <div class="ad-requests-container">
+                            <h3>Ad Requests</h3>
+                            <div class="ad-request">
+                                <p><strong>Message:</strong> {{ entry.ad_request.message }}</p>
+                                <p><strong>Details:</strong> {{ entry.ad_request.details }}</p>
+                                <p><strong>Requirements:</strong> {{ entry.ad_request.requirements }}</p>
+                                <p><strong>Payment Amount:</strong> ${{ entry.ad_request.payment_amount }}</p>
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="card-actions">
+                            <input type="hidden" name="campaign_id" value="{{ entry.campaign.id }}">
+                            <input type="hidden" name="ad_request_id" value="{{ entry.ad_request.id }}">
+                            <input type="hidden" name="sponsor_id" value="{{ entry.campaign.sponsor.user_id }}">
+                            <button type="submit" class="send-btn" >Send Request                   
+                            </button>                       
+                    </div>
+                </div> 
+            </form>
+            {% else %}
+                <p>No campaigns found.</p>
+            {% endfor %} 
+        </div> 
+    </div> 
+{% endblock %}

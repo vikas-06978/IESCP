@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Influencer details
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/influencer_&_influencer_details.css">
+{% endblock %}
+
+{% block content %}
+<div class="container2">
+    <div class="card2">
+        <div class="card-header2">
+            <h2>Influencer Details</h2>
+        </div>
+        <div class="card-body2">
+            <p><strong>Name:</strong> {{influencer.influencer_name}} </p>
+            <p><strong>Age:</strong> {{influencer.age}} </p>
+            <p><strong>Category:</strong> {{influencer.category}} </p>
+            <p><strong>Followers:</strong> {{influencer.reach}} </p>
+            <p><strong>Niche:</strong> {{influencer.niche}} </p>
+        </div>
+        <div class="card-footer2">
+            <a href="{{ url_for('admin') }}#influencer-details" class="btn2 btn-back2">Back</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

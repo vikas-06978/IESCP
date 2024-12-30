@@ -1,0 +1,520 @@
+.montserrat-alternates-bold {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.accept {
+  background-color: #5cb85c;
+  color: #ffffff;
+}
+.accept:hover {
+  background-color: #7fd47f;
+}
+
+.reject {
+  background-color: #d9534f;
+  color: #ffffff;
+}
+.reject:hover {
+  background-color: #de7976;
+}
+
+.pending {
+  background-color: #fcb316;
+  color: #ffffff;
+}
+.pending:hover {
+  background-color: #ffd67f;
+}
+
+.negotiate {
+  background-color: #acacac;
+  color: #ffffff;
+}
+.negotiate:hover {
+  background-color: #cbcbcb;
+}
+
+.container {
+  margin-top: 75px;
+}
+
+#main-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  gap: 20px;
+}
+
+.box-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 210px;
+  background-color: #d8d8db;
+  height: 67px;
+  border-radius: 15px;
+  font-size: 2rem;
+  
+}
+.search:hover {
+  background-color: #c2c2c5;
+  cursor: pointer;
+}
+.search > i {
+  margin-bottom: 12px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #d8d8db;
+  width: 800px;
+  height: 200px;
+  padding: 0px;
+  border-radius: 15px;
+}
+
+.box-1-1-1 > button {
+  font-weight: bold;
+  font-size: 25px;
+  width: 145px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+}
+.box-1-1-1 > button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.box-1-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 210px;
+  height: 200px;
+  margin-left: 12px;
+  gap: 10px;
+}
+
+.box-1-1-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d8d8db;
+  width: 210px;
+  height: 121px;
+  border-radius: 15px;
+}
+
+.box-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #d8d8db;
+  padding: 10px;
+  gap: 70px;
+  border-radius: 15px;
+}
+.box-2 > h3 {
+  font-weight: bold;
+}
+.box-2 > h3 > p {
+  font-weight: normal;
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+.buttons > button {
+  font-weight: bold;
+  font-size: 25px;
+  width: 145px;
+  margin-left: 47px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+}
+.buttons > button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.box-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  background-color: #d8d8db;
+  gap: 25px;
+  border-radius: 15px;
+}
+
+.box-3-1,
+.box-3-2,
+.box-3-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+.box-3-1:hover,
+.box-3-2:hover,
+.box-3-3:hover {
+  background-color: #c2c2c5;
+  cursor: pointer;
+}
+
+b {
+  font-size: large;
+}
+
+.button2 {
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 20px;
+  width: 195px;
+  background-color: #000000;
+  color: #ffffff;
+}
+.button2:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#main-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.view {
+  background-color: #5b57ea;
+  display: inline-block;
+  color: white;
+  width: 275px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.view:hover {
+  background-color: #7d7bd9;
+}
+
+.sent {
+  font-size: 30px;
+}
+.sent > h3 {
+  font-weight: bolder;
+  font-size: larger;
+  margin-bottom: 30px;
+}
+
+.recived {
+  font-size: 30px;
+}
+.recived > h3 {
+  font-weight: bolder;
+  font-size: larger;
+  margin-bottom: 30px;
+}
+
+.sr2,
+.sr3 {
+  display: flex;
+  flex-direction: row;
+}
+.sr2 > h2,
+.sr3 > h2 {
+  border-radius: 10px;
+  margin-left: 20px;
+  width: 195px;
+  text-align: center;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #333;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.navbar-brand:hover {
+  color: #000000;
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+.btn-outline-success {
+  border-radius: 20px; 
+}
+
+
+
+.fa-user {
+  color: #333;
+  font-size: 1.5rem;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.fa-user:hover {
+  color: #000000;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .form-control {
+      margin-bottom: 10px;
+  }
+
+  .btn-outline-success {
+      margin-bottom: 10px;
+  }
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.start-100 {
+  left: 100%;
+}
+
+.translate-middle {
+  transform: translate(-50%, -50%);
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.5em;
+}
+
+.button2 {
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+.button1 {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.button1:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .accept:hover, .reject:hover, .negotiate:hover {
+  opacity: 0.8;
+}
+
+.unread {
+  font-weight: bold;
+  background-color: #f8d7da;
+}
+
+.read {
+  font-weight: normal;
+  background-color: #d4edda;
+}
+
+.badge{
+  color: black !important ;
+}
+
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  
+}
+
+.dot-green {
+  background-color: green;
+}
+
+.dot-red {
+  background-color: red;
+}
+
+.dot-yellow {
+  background-color: yellow;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; 
+}
+
+.table th, .table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+}
+
+.table tbody tr {
+  background-color: #f9f9f9; 
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #ffffff; 
+}
+
+.table tbody tr:hover {
+  background-color: #e0e0e0; 
+}
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  z-index: 1000;
+  opacity: 0; 
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: #0056b3;
+}
+
+.back-to-top i {
+  margin: 0;
+}
+
+
+.box-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.box-3-item {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden; /* Ensures the hover effect stays within the circle */
+}
+
+.box-3-item i {
+  display: block;
+  width: 100px; /* Ensures the icon is circular */
+  height: 100px;
+  border-radius: 50%; /* Creates the circular shape */
+  background: #ddd;
+  color: #333;
+  line-height: 100px; /* Centers the icon vertically */
+  text-align: center; /* Centers the icon horizontally */
+  transition: transform 0.3s ease, background 0.3s ease;
+  position: relative;
+}
+
+.box-3-item i:hover {
+  background: #aaa;
+  transform: scale(1.2); 
+
+}
+
+.box-3-item b {
+  display: block;
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+}

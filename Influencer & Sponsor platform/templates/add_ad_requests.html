@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Ad Requests
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/add_ad_requests.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form class="form" action="{{ url_for('create_ad_requests') }}" method="POST">
+        <div class="mb-3">
+            <label for="campaign_name" class="form-label">Campaign Name:</label>
+            <select name="campaign_id" class="form-control" id="campaign_name" required>
+                <option value="">Select Campaign</option>
+                {% for campaign in campaigns %}
+                    <option value="{{ campaign.id }}">{{ campaign.campaign_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="message"></label>
+            <span class="input-group-text">Message</span>
+            <textarea name="message" class="form-control" aria-label="With textarea" required></textarea>
+        </div>
+        <div class="input-group">
+            <label for="requirements"></label>
+            <span class="input-group-text">Requirements</span>
+            <textarea name="requirements" class="form-control" aria-label="With textarea" required></textarea>
+        </div>
+        <div class="input-group">
+            <label for="payment"></label>
+            <span class="input-group-text">$ Payment</span>
+            <input name="payment" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" required>
+            <span class="input-group-text">.00</span>
+        </div>
+        
+        <button type="submit" class="accept button3">
+            <i class="fa-solid fa-plus fa-sm" style="color: #000000;">
+            </i>
+            Add Ad Request
+        </button>
+    </form>
+</div>
+{% endblock %}

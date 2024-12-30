@@ -1,0 +1,352 @@
+{% extends 'base.html' %}
+{% block title %}
+Sponsor Page
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/sponsor.css">
+{% endblock %}
+
+{% block content %}
+<div class="container-1">
+    <div id="main">
+        <div>
+            <nav class="navbar fixed-top bg-body-tertiary">
+                <div class="container-fluid ">
+                    <form class="d-flex" role="search" onclick="location.href='{{ url_for('search_influencer') }}'">
+                        <input class="form-control me-2" type="search" placeholder="Search for influencers" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <a class="navbar-brand" href="#" class="poppins-bold">Welcome @ <strong>{{user.username}}</strong></a>
+                    <div class="d-flex align-items-center">
+                        <!-- Notification Icon with Count -->
+                        <div class="position-relative">
+                            <a href="#sectionToScrollTo">
+                                <i class="fa-regular fa-bell fa-xl" style="cursor: pointer;"></i>
+                            </a>
+                            {% if unread_notifications > 0 %}
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ unread_notifications }}
+                            </span>
+                            {% endif %}
+                        </div>
+                        <!-- User Icon -->
+                        <i style="cursor: pointer;" class="fa-regular fa-user fa-xl"
+                            onclick="location.href='{{ url_for('update_sponsor_profile', user_id=user.id) }}'">
+                        </i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="main-1">
+            <div class="image">
+                <img src="/static/Images/Sponsor-home.png" alt="" cover no-repeat>
+            </div>
+            <div class="boxes">
+                <div class="box-1">
+                    <h3>{{user.name}}</h3>
+                </div>
+                <div class="box-2">
+                    <h3>{{sponsors.industry.title()}}</h3>
+                </div>
+                <div class="box-3">
+                    <h3>{{sponsors.establishment}}</h3>
+                </div>
+                <div class="box-4">
+                    <h3>{{sponsors.budget}}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-2">
+            <div class="sent">
+                <h3>Campaigns</h3>
+                <button type="button" class="accept button3"
+                    onclick="location.href='{{ url_for('create_campaigns') }}'">
+                    <i class="fa-solid fa-plus fa-sm" style="color: #000000;"></i>
+                    Create campaigns
+                </button>
+                <div class="sr1">
+                    {% if campaigns %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Campaign Name</th>
+                                <th>Description</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Budget</th>
+                                <th>Visibility</th>
+                                <th>Goals</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for campaign in campaigns %}
+                            <tr>
+                                <th scope="row">{{loop.index}}</th>
+                                <!-- <td>{{ campaign.id }}</td> -->
+                                <td>{{ campaign.campaign_name }}</td>
+                                <td>{{ campaign.description }}</td>
+                                <td>{{ campaign.start_date.strftime('%Y-%m-%d') }}</td>
+                                <td>{{ campaign.end_date.strftime('%Y-%m-%d') }}</td>
+                                <td>${{ campaign.budget }}</td>
+                                <td>{{ campaign.visibility }}</td>
+                                <td>{{ campaign.goals }}</td>
+                                <td>
+                                    <div class="sr2">
+                                        <!-- Update Button -->
+                                        <button type="button" class="update button2"
+                                            onclick="location.href='{{ url_for('update_campaign', campaign_id=campaign.id) }}'">
+                                            <i class="fa-regular fa-pen-to-square fa-sm"></i>
+                                            Update
+                                        </button>
+                                        <!-- Delete Button -->
+                                        <form action="{{ url_for('delete_campaign', campaign_id=campaign.id) }}"
+                                            method="POST" style="display:inline;">
+                                            <button type="submit" class="delete button2">
+                                                <i class="fa-solid fa-trash-can fa-sm"></i>
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No campaigns found.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="recived">
+                <h3>Add Requests</h3>
+                <button type="submit" class="accept button3 "
+                    onclick="location.href='{{ url_for('create_ad_requests') }}'">
+                    <i class="fa-solid fa-plus fa-sm" style="color: #000000;"></i>
+                    Create add requests
+                </button>
+                <div class="rr1">
+                    {% if ad_requests %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Campaign Name</th>
+                                <th>Messages</th>
+                                <th>Requirements</th>
+                                <th>Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for request in ad_requests %}
+                            <tr>
+                                <th scope="row">{{loop.index}}</th>
+                                <td>{{ request.campaign_name }}</td>
+                                <td>{{ request.message }}</td>
+                                <td>{{ request.requirements }}</td>
+                                <td>${{ request.payment_amount }}</td>
+                                <td>
+                                    <div class="rr2">
+                                        <!-- Update Button -->
+                                        <button type="button" class="update button2"
+                                            onclick="location.href='{{ url_for('update_ad_requests', ad_request_id=request.id) }}'">
+                                            <i class="fa-regular fa-pen-to-square fa-sm"></i>
+                                            Update
+                                        </button>
+                                        <!-- Delete Button -->
+                                        <form action="{{ url_for('delete_ad_requests', ad_request_id=request.id) }}"
+                                            method="POST" style="display:inline;">
+                                            <button type="submit" class="delete button2">
+                                                <i class="fa-solid fa-trash-can fa-sm"></i>
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No ad requests found.</p>
+                    {% endif %}
+                </div>
+             
+                <div id="main-2">
+                    <div class="set-public-campaigns">
+                        <h3>Set Public Campaign and Ad Request</h3>
+                        <form action="{{ url_for('see_public_campaigns') }}" method="POST">
+                            <div class="form-group">
+                                <label for="campaign-select">Select Public Campaign:</label>
+                                <select id="campaign-select" name="campaign_id" required>
+                                    <option value="">Select a Campaign</option>
+                                    {% for campaign in public_campaigns %}
+                                    <option value="{{ campaign.id }}">{{ campaign.campaign_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ad-request-select">Select Ad Request:</label>
+                                <select id="ad-request-select" name="ad_request_id" required>
+                                    <option value="">Select an Ad Request</option>
+                                    {% for campaign in public_campaigns %}
+                                    {% for ad_request in ad_requests %}
+                                    {% if ad_request.campaign_name== campaign.campaign_name %}
+                                    <option value="{{ ad_request.id }}">{{ ad_request.campaign_name }}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="button-group">
+                                <button type="submit" class="button-set">Set Now</button>
+                                <a href="{{ url_for('see_public_campaigns') }}" class="button-view button-set">View Campaigns</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="sent">
+                    <h3>Sent Requests</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Message</th>
+                                <th>Status</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notification in notifications %}
+                            <tr class="{{ 'unread' if not notification.is_read else 'read' }}">
+                                <th scope="row">{{loop.index}}</th>
+                                <td>{{ notification.message }}</td>
+                                <td>
+                                    {% if notification.status == 'Accepted' %}
+                                    <span class="dot dot-green"></span>
+                                    <span class="badge badge-success">Accepted</span>
+                                    {% elif notification.status == 'Rejected' %}
+                                    <span class="dot dot-red"></span>
+                                    <span class="badge badge-danger">Rejected</span>
+                                    {% else %}
+                                    <span class="dot dot-yellow"></span>
+                                    <span class="badge badge-warning">Pending</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ notification.created_at }}</td>
+                                <td>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        {% if notification.campaign_id %}
+                                        <button onclick="location.href='/click_view_campaign/{{ notification.campaign_id }}'" class="btn btn-primary">View Campaign</button>
+                                        {% endif %}
+                                        {% if notification.ad_request_id %}
+                                        <button onclick="location.href='/click_view_ad_request/{{ notification.ad_request_id }}'" class="btn btn-secondary">View Ad Request</button>
+                                        {% endif %}
+                                        <button onclick="location.href='/click_view_influencer/{{ notification.receiver_id }}'" class="btn btn-info">View Influencer</button>
+                                        <td>
+                                            <td>
+                                                <button onclick="location.href='/disable_sponsor_negotiation'" class="btn btn-warning">
+                                                    <i class="fa-regular fa-comments fa-sm"></i> Negotiate
+                                                </button>
+                                            </td>                                            
+                                        </td>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="recived">
+                    <h3 id="sectionToScrollTo">Received Requests</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Message</th>
+                                <th>Read Status</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notification in sponsor_notifications %}
+                            <tr class="{{ 'unread' if not notification.is_read else 'read' }}">
+                                <th scope="row">{{loop.index}}</th>
+                                <td>{{ notification.message }}</td>
+                                <td>{{ 'Read' if notification.is_read else 'Unread' }}</td>
+                                <td>{{ notification.created_at }}</td>
+                                <td>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        {% if notification.campaign_id %}
+                                        <button onclick="location.href='/click_view_sponsor_campaign/{{ notification.campaign_id }}'" class="btn btn-primary">View Campaign</button>
+                                        {% endif %}
+                                        {% if notification.ad_request_id %}
+                                        <button onclick="location.href='/click_view_sponsor_ad_request/{{ notification.ad_request_id }}'" class="btn btn-secondary">View Ad Request</button>
+                                        {% endif %}
+                                        <button onclick="location.href='/click_view_influencer/{{ notification.user_id }}'" class="btn btn-info">View Influencer</button>
+                
+                                        <form action="/update_sponsor_notification_status/{{ notification.id }}/Accepted" method="POST" style="display:inline;">
+                                            <button class="btn btn-success">
+                                                <i class="fa-regular fa-circle-check fa-sm"></i>
+                                                Accept
+                                            </button>
+                                        </form>
+                                        <form action="/update_sponsor_notification_status/{{ notification.id }}/Rejected" method="POST" style="display:inline;">
+                                            <button class="btn btn-danger">
+                                                <i class="fa-solid fa-user-slash fa-sm"></i>
+                                                Reject
+                                            </button>
+                                        </form>
+                                        <td>
+                                            <td>
+                                                <td>
+                                                    <button onclick="location.href='/disable_sponsor_negotiation'"  class="btn btn-warning">
+                                                        <i class="fa-regular fa-comments fa-sm"></i> Negotiate
+                                                    </button>
+                                                </td>
+                                            </td>
+                                        </td>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-arrow-up">
+        </i>
+    </a>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.addEventListener('scroll', function() {
+        const backToTopButton = document.getElementById('backToTop');
+        if (window.scrollY > 300) { // Adjust this value based on when you want the button to appear
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+    
+    document.getElementById('backToTop').addEventListener('click', function(event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    </script>
+    
+{% endblock %}

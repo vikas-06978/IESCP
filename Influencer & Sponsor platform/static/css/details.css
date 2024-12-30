@@ -1,0 +1,33 @@
+/* details.css */
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    margin: 20px 0;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.75rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4e73df;
+}
+
+.card-text {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.btn-danger {
+    font-size: 1.25rem;
+    margin-top: 20px;
+}

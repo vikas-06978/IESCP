@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Sponsor signup
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/sponsor_login.css">
+{% endblock %}
+
+{% block content %}
+<body>
+  <div id="main">
+      <div class="main-1">
+        <div class="img">
+          <img src="/static/Images/Sponsor.png" alt="">SIGN UP
+        </div>
+          <form action="#" method="POST" class="form">
+            <div >
+              <div class="custom-mb">
+                  <label for="companyname" class="form-label"></label>
+                  <input name="name" type="text" class="form-control" id="compayname" placeholder="Compay Name">
+                </div>
+                <div class="custom-mb">
+                  <label for="username" class="form-label"></label>
+                  <input name="username" type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="custom-mb">
+                  <label for="role" class="form-label"></label>
+                  <input name="role" value="sponsor" type="text" class="form-control" id="role" placeholder="Role" readonly>
+                </div>
+                <div class="custom-mb">
+                  <label for="budget" class="form-label "></label>
+                  <input name="budget"  type="number" class="form-control budget" id="budget" placeholder="Budget" >
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <input name="establishment" type="date" class="form-control" placeholder="Establishment" aria-label="Establishment">
+                  </div>
+                  <div class="col">
+                    <input name="industry" type="text" class="form-control" placeholder="Industry" aria-label="Industry">
+                  </div>
+                </div>
+                <div class="custom-mb">
+                  <label for="compayemail" class="form-label"></label>
+                  <input name="email" type="email" class="form-control" id="compayemail" placeholder="Company Email">
+                </div>
+                <div class="custom-mb">
+                  <label for="password" class="form-label"></label>
+                  <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                </div><div class="custom-mb">
+                  <label for="confirmpassword" class="form-label"></label>
+                  <input name="confirmpassword" type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password">
+                </div>
+                <div class="button">
+                  <button class="button-3" type="submit" onclick="location.href='{{(url_for('login'))}}'">Register</button>
+                </div>
+            </div>
+          </form>
+            
+      </div>
+  </div>
+</body>
+{% endblock %}
+
+    
+

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Update Sponsor Profile
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/update_sponsor_profile.css') }}">
+{% endblock %}
+
+{% block content %}
+<button type="button" class="close-button" onclick="history.back()">✖</button>
+<div class="profile-container">
+    <form action="{{ url_for('update_sponsor_profile', user_id=user.id) }}" method="post">
+        <h2>Profile</h2>
+        <div class="avatar"></div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}" required>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}" required>
+        <label for="industry">Industry</label>
+        <input type="text" id="industry" name="industry" value="{{ sponsor.industry }}">
+
+        <label for="budget">Budget</label>
+        <input type="text" id="budget" name="budget"  value="{{ sponsor.budget }}">
+
+        <button type="submit">Update</button>
+        <button type="button" onclick="location.href='{{ url_for('sponsor_logout') }}'">Log out</button>
+    </form>
+</div>
+{% endblock %}

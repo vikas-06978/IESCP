@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search Influencers
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/search_influencer.css">
+{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <a href="{{ url_for('sponsor') }}" class="back-button">Back</a>
+        </div>
+        {% for influencer in influencers %}
+            <form action="{{ url_for('send_notification') }}" method="POST" class="card">
+                <input type="hidden" name="influencer_id" value="{{ influencer.id }}">
+
+                <div class="card-image">
+                    <img src="{{ influencer.image_url or 'https://via.placeholder.com/150' }}" alt="Influencer Image" id="influencer-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="username">{{ influencer.influencer_name }}</h2>
+                    <p class="followers">Followers: {{ influencer.followers_count or 'N/A' }}</p>
+                    <p class="following">Following: {{ influencer.following_count or 'N/A' }}</p>
+                    <p class="category">Category: {{ influencer.category }}</p>
+                    <p class="reach">Reach: {{ influencer.reach }}</p>
+                    <p class="niche">Niche: {{ influencer.niche }}</p>
+
+                    <!-- Campaign Select -->
+                    <div class="select-container">
+                        <label for="campaign-select-{{ influencer.id }}">Select Campaign:</label>
+                        <select id="campaign-select-{{ influencer.id }}" name="campaign_id">
+                            <option value="">Select a Campaign</option>
+                            {% for campaign in private_campaigns %}
+                                <option value="{{ campaign.id }}">{{ campaign.campaign_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Ad Request Select -->
+                    <div class="select-container">
+                        <label for="ad-request-select-{{ influencer.id }}">Select Ad Request:</label>
+                        <select id="ad-request-select-{{ influencer.id }}" name="ad_request_id">
+                            <option value="">Select an Ad Request</option>
+                            {% for ad_request in ad_requests %}
+                                <option value="{{ ad_request.id }}">{{ ad_request.campaign_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="send-btn">Send</button>
+                </div>
+            </form>
+        {% else %}
+            <p>No influencers found.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

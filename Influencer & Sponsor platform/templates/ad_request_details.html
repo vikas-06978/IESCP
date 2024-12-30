@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Ad Request Details{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/details.css">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+            <h1 class="card-title">Ad Request Details</h1>
+            <p class="card-text"><strong>Campaign Name:</strong> {{ ad_request.campaign_name }}</p>
+            <p class="card-text"><strong>Message:</strong> {{ ad_request.message }}</p>
+            <p class="card-text"><strong>Requirements:</strong> {{ ad_request.requirements }}</p>
+            <p class="card-text"><strong>Payment Amount:</strong> {{ ad_request.payment_amount }}</p>
+            <p class="card-text"><strong>Status:</strong> {{ ad_request.status }}</p>
+        </div>
+    </div>
+    <button class="btn btn-danger" onclick="window.history.back()">Back</button>
+</div>
+{% endblock %}

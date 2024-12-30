@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+Profile Page
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/sponsor_profile.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-img">
+                <input type="file" id="imgUpload" accept="image/*" style="display:none;">
+                <label for="imgUpload" id="imgLabel">
+                    <img src="default-profile.png" alt="Profile Image" id="profileImage">
+                </label>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Name">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm Password">
+            </div>
+            <button class="update-button">Update</button>
+            <button class="logout-button">Log out</button>
+        </div>
+    </div>
+{% endblock %}
+
+
