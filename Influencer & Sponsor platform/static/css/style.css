@@ -97,3 +97,15 @@ Unauthorized copying of this file, via any medium, is strictly prohibited
 .navbar:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /
 }
+
+
+body::after {
+    content: "© 2024 Vikas-06978";
+    display: block;
+    position:fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    opacity: 0.5;
+  }
+  
