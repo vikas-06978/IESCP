@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Registration Page
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/register.css">
+
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <h1>Register as</h1>
+        <div class="main-1">
+            <div class="box">
+                <img src="/static/Images/Sponsor.png" class="rounded float-end" alt="...">
+            <button class="button-1" type="submit" onclick="location.href='{{url_for('sponsor_login')}}'">Sponsor</button>
+            </div>
+
+            <div class="box">
+                <img src="/static/Images/Influencer.png" class="rounded float-end" alt="...">
+            <button class="button-1" type="submit" onclick="location.href='{{url_for('influencer_login')}}'">Influencer</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Influencer Page
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/influencer.css">
+{% endblock %}
+
+{% block content %}
+<div id="main">
+    <div id="navbar" >
+        <nav class="navbar fixed-top bg-body-tertiary">
+            <div class="container-fluid">
+                <form class="d-flex" role="search" onclick="location.href='{{ url_for('search_campaigns') }}'">
+                    <input class="form-control me-2" type="search" placeholder="Search for campaigns" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <a class="navbar-brand" href="#" class="poppins-bold">Welcome @{{user.username}}</a>
+                <div class="d-flex align-items-center">
+                    <!-- Notification Icon with Count -->
+                    <div class="position-relative">
+                        <a href="#sectionToScrollTo">
+                            <i class="fa-regular fa-bell fa-xl" style="cursor: pointer;"></i>
+                        </a>
+
+                        {% if unread_notifications > 0 %}
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ unread_notifications }}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <!-- User Icon -->
+                    <i style="cursor: pointer;" class="fa-regular fa-user fa-xl"
+                        onclick="location.href='{{ url_for('update_influencer_profile', user_id=user.id) }}'">
+                    </i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="main-1">
+        <div class="boxes">
+            <div class="box-1">
+                <div class="profile">
+                    <div>
+                        <h1 class="montserrat-alternates-bold">Hello {{user.username}}!</h1>
+                        <p>It's good to see you again</p>
+                        <b>{{influencer.niche}}</b>
+                    </div>
+                    <div class="img" style="width: 260px; height:333px">
+                        <img src="/static/Images/man2.png" style="width: 100%; height:auto" alt="">
+                    </div>
+                </div>
+                <div class="box-1-1">
+                    <div class="search .poppins-bold">
+                        {{influencer.category}}
+                    </div>
+                    <div class="box-1-1-1">
+                        <h3 class="poppins-bold">Profile</h3>
+                        <button type="submit" class="poppins-bold button1"
+                            onclick="location.href='{{ url_for('update_influencer_profile', user_id=user.id) }}'">Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-2">
+                <h3>
+                    Posts
+                    <p>7,883 posts</p>
+                </h3>
+                <h3>
+                    Followers
+                    <p>{{influencer.reach}}</p>
+                </h3>
+                <h3>
+                    Followings
+                    <p>10 followings</p>
+                </h3>
+                <div class="buttons">
+                    <button type="submit" class="poppins-bold button1">Follow</button>
+                    <button type="submit" class="poppins-bold button1">Message</button>
+                </div>
+            </div>
+            <div class="box-3">
+                <div class="box-3-1">
+                    <i class="fa-regular fa-circle fa-7x"></i>
+                    <b>Then & Now</b>
+                </div>
+                <div class="box-3-2">
+                    <i class="fa-regular fa-circle fa-7x"></i>
+                    <b>Thanks</b>
+                </div>
+                <div class="box-3-3">
+                    <i class="fa-regular fa-circle fa-7x"></i>
+                    <b>Traveling</b>
+                </div>
+                <div class="box-3-3">
+                    <i class="fa-regular fa-circle fa-7x"></i>
+                    <b>New Year</b>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <div id="main-2">
+        <div class="view">
+            <h2>View Requests
+                <i class="fa-solid fa-arrow-right fa-xl"></i>
+            </h2>
+        </div>
+        <div class="sent">
+            <h3>Sent Requests</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for notification in sent_requests %}
+                    <tr class="{{ 'unread' if not notification.is_read else 'read' }}">
+
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{ notification.message }}</td>
+                        <td>
+                            {% if notification.status == 'Accepted' %}
+                            <span class="dot dot-green"></span>
+                            <span class="badge badge-success">Accepted</span>
+                            {% elif notification.status == 'Rejected' %}
+                            <span class="dot dot-red"></span>
+                            <span class="badge badge-danger">Rejected</span>
+                            {% else %}
+                            <span class="dot dot-yellow"></span>
+                            <span class="badge badge-warning">Pending</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ notification.created_at }}</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-2">
+                                {% if notification.campaign_id %}
+                                <button
+                                    onclick="location.href='/click_view_sponsor_campaign/{{ notification.campaign_id }}'"
+                                    class="btn btn-primary">View Campaign</button>
+                                {% endif %}
+                                {% if notification.ad_request_id %}
+                                <button
+                                    onclick="location.href='/click_view_sponsor_ad_request/{{ notification.ad_request_id }}'"
+                                    class="btn btn-secondary">View Ad Request</button>
+                                {% endif %}
+                                <button onclick="location.href='/click_view_sponsor/{{notification.receiver_id}}'"
+                                    class="btn btn-info">View Sponsor
+                                </button>
+                                <td>
+                                    <td>
+                                        <button  onclick="location.href='/disable_influencer_negotiation'"  class="btn btn-warning">
+                                            <i class="fa-regular fa-comments fa-sm"></i> Negotiate
+                                        </button>
+                                    </td>                                    
+                                </td>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="recived">
+        <h3 id="sectionToScrollTo">Received Requests</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Message</th>
+                    <th>Read Status</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for notification in received_requests %}
+                <tr class="{{ 'unread' if not notification.is_read else 'read' }}">
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{ notification.message }}</td>
+                    <td>{{ 'Read' if notification.is_read else 'Unread' }}</td>
+                    <td>{{ notification.created_at }}</td>
+                    <td>
+                        <div class="d-flex flex-wrap gap-2">
+                            {% if notification.campaign_id %}
+                            <button onclick="location.href='/click_view_campaign/{{ notification.campaign_id }}'"
+                                class="btn btn-primary">View Campaign</button>
+                            {% endif %}
+                            {% if notification.ad_request_id %}
+                            <button onclick="location.href='/click_view_ad_request/{{ notification.ad_request_id }}'"
+                                class="btn btn-secondary">View Ad Request</button>
+                            {% endif %}
+                            <button onclick="location.href='/click_view_sponsor/{{notification.user_id}}'"
+                                class="btn btn-info">View Sponsor</button>
+                            <form action="/update_notification_status/{{ notification.id }}/Accepted" method="POST"
+                                style="display:inline;">
+                                <button
+                                    onclick="location.href='/update_notification_status/{{ notification.id }}/Accepted'"
+                                    class="btn btn-success">
+                                    <i class="fa-regular fa-circle-check fa-sm"></i>
+                                    Accept
+                                </button>
+                            </form>
+                            <form action="/update_notification_status/{{ notification.id }}/Rejected" method="POST"
+                                style="display:inline;">
+                                <button
+                                    onclick="location.href='/update_notification_status/{{ notification.id }}/Rejected'"
+                                    class="btn btn-danger">
+                                    <i class="fa-solid fa-user-slash fa-sm"></i>
+                                    Reject
+                                </button>
+                            </form>
+                            <td>
+                                <td>
+                                    <button  onclick="location.href='/disable_influencer_negotiation'" class="btn btn-warning">
+                                        <i class="fa-regular fa-comments fa-sm"></i> Negotiate
+                                    </button>
+                                </td>                                
+                            </td>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<a href="#" class="back-to-top" id="backToTop">
+    <i class="fa-solid fa-arrow-up">
+    </i>
+</a>
+{% endblock %}
+
+
+{% block script %}
+<script>
+    document.addEventListener('scroll', function () {
+        const backToTopButton = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    document.getElementById('backToTop').addEventListener('click', function (event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+{% endblock %}

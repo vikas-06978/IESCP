@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Public Campaign Details
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/see_public_campaigns.css">
+{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <h1>Campaign Details</h1>
+
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <a href="{{ url_for('sponsor') }}" class="back-button">Back</a>
+        </div>
+
+        <div id="campaigns-container">
+            {% for entry in entries %}
+                <div class="card">
+                    <div class="card-content">
+                        <h2>{{ entry.sponsor.sponsor_name }}</h2>
+                        <h2 class="campaign-name">{{ entry.campaign.campaign_name }}</h2>
+                        <p class="campaign-description">{{ entry.campaign.description }}</p>
+                        <p class="campaign-visibility">{{ entry.campaign.visibility }}</p>
+                        <p class="campaign-start-date">Start Date: {{ entry.campaign.start_date.strftime('%Y-%m-%d') }}</p>
+                        <p class="campaign-end-date">End Date: {{ entry.campaign.end_date.strftime('%Y-%m-%d') }}</p>
+                        <p class="campaign-budget">Budget: ${{ entry.campaign.budget }}</p>
+                        <p class="campaign-goals">Goals: {{ entry.campaign.goals }}</p>
+                        <div class="ad-requests-container">
+                            <h3>Ad Requests</h3>
+                            <div class="ad-request">
+                                <p><strong>Message:</strong> {{ entry.ad_request.message }}</p>
+                                <p><strong>Requirements:</strong> {{ entry.ad_request.requirements }}</p>
+                                <p><strong>Payment Amount:</strong> ${{ entry.ad_request.payment_amount }}</p>
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="card-actions">
+                        <form action="{{ url_for('delete_set_entry', entry_id=entry.id) }}" method="POST">
+                            <button type="submit" class="button-delete">Delete</button>
+                        </form>
+                    </div>
+                </div> <!-- End of card -->
+            {% else %}
+                <p>No campaigns found.</p>
+            {% endfor %} 
+        </div> 
+    </div> 
+{% endblock %}

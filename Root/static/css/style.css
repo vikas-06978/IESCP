@@ -1,0 +1,92 @@
+.flash-messages .alert {
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.flash-messages .alert .btn-close {
+    margin-left: auto;
+    color: inherit;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.flash-messages .alert .btn-close:hover {
+    opacity: 1;
+}
+
+.flash-messages .alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.flash-messages .alert-success i {
+    margin-right: 10px;
+    color: #28a745;
+}
+
+.flash-messages .alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.flash-messages .alert-danger i {
+    margin-right: 10px;
+    color: #dc3545;
+}
+
+.flash-messages .alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+.flash-messages .alert-warning i {
+    margin-right: 10px;
+    color: #ffc107;
+}
+
+.flash-messages .alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.flash-messages .alert-info i {
+    margin-right: 10px;
+    color: #17a2b8;
+}
+
+.flash-messages .alert:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.flash-messages .alert-dismissible {
+    animation: fadeOut 0.5s ease-in-out forwards;
+    animation-delay: 4s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.navbar {
+    background-color: #007bff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /
+}
