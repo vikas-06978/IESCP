@@ -1,4 +1,4 @@
-# Influencer Engagement and Sponsorship Coordination Platform (IESCP) 🚀  
+# Influencer Engagement and Sponsorship Coordination Platform (IESCP)   
 ![Flask](https://img.shields.io/badge/Flask-2.0%2B-green)  
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.0-blue)  
 ![SQLite](https://img.shields.io/badge/SQLite-3.0-lightgrey)  
@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 - [About the Project](#about-the-project)
 - [Features](#features)
 - [Installation](#installation)
@@ -16,17 +16,15 @@
 - [Technologies Used](#technologies-used)
 - [Contribution Guidelines](#contribution-guidelines)
 - [License](#license)
-- [Contact](#contact)
-- [SEO Tags](#seo-tags)
-
+  
 ---
 
-## 📜 About the Project
+## About the Project
 The **Influencer Engagement and Sponsorship Coordination Platform (IESCP)** is a web platform designed to facilitate collaboration between **sponsors** and **influencers**. Sponsors can launch ad campaigns and influencers can monetize their reach by engaging with these campaigns. Admins have oversight to ensure smooth operations and flag inappropriate content.  
 
 ---
 
-## 🌟 Features
+## Features
 - **Role-based Access:** Admin, Sponsor, Influencer  
 - **Campaign Management:** Create, update, and delete campaigns  
 - **Ad Requests:** Sponsors can send and track ad requests  
@@ -36,7 +34,7 @@ The **Influencer Engagement and Sponsorship Coordination Platform (IESCP)** is a
 
 ---
 
-## ⚙️ Installation
+## Installation
 1. **Clone the repository:**  
    ```bash
    git clone https://github.com/vikas-06978/IESCP.git
@@ -59,14 +57,14 @@ The **Influencer Engagement and Sponsorship Coordination Platform (IESCP)** is a
 5. **Run the Flask app:**
    ``` python -m flask run ```
 
-📊 Usage
+## Usage
 
 - **Admin:** Access the admin dashboard for platform insights and content moderation.
 - **Sponsors:** Create campaigns, send ad requests, and monitor engagement.
 - **Influencers:** Accept/reject ad requests, negotiate terms, and search for relevant campaigns.
 
 
-🛠️ Technologies Used
+## Technologies Used
 
 - **Backend:** Flask (Python)
 - **Frontend:** Jinja2, Bootstrap
@@ -74,7 +72,7 @@ The **Influencer Engagement and Sponsorship Coordination Platform (IESCP)** is a
 - **Forms & Validation:** WTForms (Optional)
 - **Styling:** Custom CSS, Bootstrap
 
-## 🤝 Contribution Guidelines
+## Contribution Guidelines
 Contributions are welcome! If you wish to contribute:  
 
 1. **Fork the repository.**  
@@ -93,12 +91,12 @@ Contributions are welcome! If you wish to contribute:
 
 
 
-📄 License
+## License
 
 Distributed under the MIT License. See **LICENSE** for more information.
 
 
-### 📈 Keywords
+### Keywords
 Flask Sponsorship Influencer Platform Campaign Management SQLite Bootstrap Jinja2 Ad Management
 
 
